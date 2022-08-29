@@ -1,0 +1,12 @@
+﻿@*@model IEnumerable<bethanysPieShop.Models.Pie>*@
+@model PieListViewModel
+
+
+<h1>@Model.CurrentCategory</h1>
+
+@foreach (var item in Model.Pies)
+{
+    <p>@item.Name</p>
+    <p>@item.Price</p>
+    <p>@item.Category.CategoryName</p>
+}
