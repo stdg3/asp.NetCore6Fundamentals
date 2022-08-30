@@ -14,10 +14,14 @@ builder.Services.AddScoped<IPieRepository, PieRepository>(); //DI container
 //builder.Services.AddScoped<ICategoryRepository, MockCategoryRepository>();
 //builder.Services.AddScoped<IPieRepository, MockPieRepository>(); //DI container
 
+builder.Services.AddScoped<IShoppingCart, ShoppingCart>(sp => ShoppingCart.GetCart(sp));
+builder.Services.AddSession();
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 
 app.UseStaticFiles();
+app.UseSession();
 
 if (app.Environment.IsDevelopment())
 {
