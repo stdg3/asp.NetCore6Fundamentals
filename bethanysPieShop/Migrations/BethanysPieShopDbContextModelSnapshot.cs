@@ -105,7 +105,7 @@ namespace bethanysPieShop.Migrations
 
                     b.HasKey("OrderId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Order");
                 });
 
             modelBuilder.Entity("bethanysPieShop.Models.OrderDetail", b =>

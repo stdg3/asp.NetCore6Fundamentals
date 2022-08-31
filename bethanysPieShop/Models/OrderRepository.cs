@@ -1,6 +1,6 @@
 ﻿namespace bethanysPieShop.Models
 {
-    public class OrderRepository
+    public class OrderRepository: IOrderRepository
     {
         private readonly BethanysPieShopDbContext _bethanysPieShopDbContext;
         private readonly IShoppingCart _shoppingCart;

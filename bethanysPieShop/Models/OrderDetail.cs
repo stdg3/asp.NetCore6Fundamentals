@@ -1,5 +1,8 @@
-﻿namespace bethanysPieShop.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace bethanysPieShop.Models
 {
+    [Table("OrderDetail")]
     public class OrderDetail
     {
         public int OrderDetailId { get; set; }

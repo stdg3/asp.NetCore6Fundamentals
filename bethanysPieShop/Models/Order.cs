@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Xml.Linq;
 
 namespace bethanysPieShop.Models
 {
+    [Table("Order")]
     public class Order
     {
         [BindNever]
