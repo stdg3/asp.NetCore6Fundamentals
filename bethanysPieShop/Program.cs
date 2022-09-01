@@ -22,7 +22,7 @@ builder.Services.AddHttpContextAccessor();
 
 
 builder.Services.AddRazorPages();
-//builder.Services.AddServerSideBlazor();
+builder.Services.AddServerSideBlazor();
 
 builder.Services.AddDbContext<BethanysPieShopDbContext>(option =>
 {
@@ -47,7 +47,7 @@ app.MapControllerRoute(
 
 //app.MapGet("/", () => "Hello World!");
 app.MapRazorPages();
-//app.MapBlazorHub();
+app.MapBlazorHub();
 
 app.MapFallbackToPage("/app/{*catchall}", "/App/Index");
 
