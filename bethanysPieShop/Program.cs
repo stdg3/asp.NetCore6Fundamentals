@@ -1,8 +1,10 @@
 using bethanysPieShop.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("BethanysPieShopDbContextConnection") ?? throw new InvalidOperationException("Connection string 'BethanysPieShopDbContextConnection' not found.");
 
 builder.Services.AddControllersWithViews()
     .AddJsonOptions(options =>
@@ -29,12 +31,16 @@ builder.Services.AddDbContext<BethanysPieShopDbContext>(option =>
     option.UseSqlServer(builder.Configuration["ConnectionStrings:BethanysPieShopDbContextConnection"]);
 });
 
+builder.Services.AddDefaultIdentity<IdentityUser>()
+    .AddEntityFrameworkStores<BethanysPieShopDbContext>();//(options => options.SignIn.RequireConfirmedAccount = true)
+
 var app = builder.Build();
 
 app.UseStaticFiles();
 app.UseSession();
 
 app.UseAuthentication();
+app.UseAuthorization();
 
 if (app.Environment.IsDevelopment())
 {
